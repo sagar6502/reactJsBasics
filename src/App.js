@@ -16,6 +16,8 @@ import RegisterForm from './components/RegisterForm';
 import TextInputWithFocusButton from './components/TextInputWithFocusButton'
 import Clock from './components/Clock';
 import { useState } from 'react';
+import MealsList from './components/MealsList'
+import Counter from './components/Counter'
 
 function Logo(props){
   const userPic = <img src = {avatar}/>;
@@ -61,18 +63,18 @@ function Logo(props){
 
 
 
-function App() {
-  let [word,setWord] = useState('Clock');
-  function handleClick(){
-    setWord('Watch')
- }
-  return (
-      <div className="App">
-        <Clock status={word +" Alarm Off"}/>
-        <button onClick={handleClick}>Click here</button>
-      </div>
-    );
-};   
+// function App() {
+//   let [word,setWord] = useState('Clock');
+//   function handleClick(){
+//     setWord('Watch')
+//  }
+//   return (
+//       <div className="App">
+//         <Clock status={word +" Alarm Off"}/>
+//         <button onClick={handleClick}>Click here</button>
+//       </div>
+//     );
+// };   
 
 // function App() {
 //   const date = new Date()
@@ -83,7 +85,16 @@ function App() {
 //     );
 // };   
 
-export default App;
+// function App() {
+//   return (
+//       <div>
+//         <MealsList/ >
+//         <Counter/>
+//       </div>
+//     );
+// };   
+
+// export default App;
 
 // function App() {
 
@@ -103,3 +114,45 @@ export default App;
 //   }
   
 //   export default App;
+
+
+function Main(props) { 
+  return <Header msg={props.msg} />; 
+};
+
+function Header(props) { 
+  return ( 
+    <div style={{ border: "10px solid whitesmoke" }}> 
+      <h1>Header here</h1> 
+      <Wrapper msg={props.msg} /> 
+    </div> 
+  ); 
+};
+
+function Wrapper(props) { 
+  return ( 
+    <div style={{ border: "10px solid lightgray" }}> 
+      <h2>Wrapper here</h2> 
+      <Button msg={props.msg} /> 
+    </div> 
+  ); 
+};
+
+function Button(props) { 
+  return ( 
+    <div style={{ border: "20px solid orange" }}> 
+      <h3>This is the Button component</h3> 
+      <button onClick={() => alert(props.msg)}>Click me!</button> 
+    </div> 
+  ); 
+};
+
+function App() { 
+  return ( 
+    <Main  
+      msg="I passed through the Header and the Wrapper and I reached the Button component"  
+    /> 
+  ); 
+}; 
+
+export default App;

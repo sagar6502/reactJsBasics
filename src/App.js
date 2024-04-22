@@ -21,6 +21,10 @@ import Counter from './components/Counter'
 import MealsProvider from './components/MealsProvider';
 import { useReducer } from 'react';
 
+import Fruits from "./components/Fruits";
+import FruitsCounter from "./components/FruitsCounter";
+import React from 'react';
+
 function Logo(props){
   const userPic = <img src = {avatar}/>;
   return userPic;
@@ -163,22 +167,41 @@ const reducer = (state, action) => {
   return new Error();
 }
 
-function App() { 
-  const initialState = {money: 100};
-  const [state,dispatch] = useReducer(reducer,initialState);
-  return ( 
+// function App() { 
+//   const initialState = {money: 100};
+//   const [state,dispatch] = useReducer(reducer,initialState);
+//   return ( 
+//     <div className="App">
+//         <h1>Wallet: {state.money}</h1>
+//         <div>
+//           <button onClick={() => dispatch({type:'ride'})}>
+//             A new customer!
+//           </button>
+//           <button onClick={() => dispatch({type:'fuel'})}>
+//             Refill the tank!
+//           </button>
+//         </div>
+//     </div>
+//   ); 
+// }; 
+
+// export default App;
+
+
+function App() {
+  const [fruits] = React.useState([
+      {fruitName: 'apple', id: 1},
+      {fruitName: 'apple', id: 2},
+      {fruitName: 'plum', id: 3},
+  ]);
+
+  return (
     <div className="App">
-        <h1>Wallet: {state.money}</h1>
-        <div>
-          <button onClick={() => dispatch({type:'ride'})}>
-            A new customer!
-          </button>
-          <button onClick={() => dispatch({type:'fuel'})}>
-            Refill the tank!
-          </button>
-        </div>
+      <h1>Where should the state go?</h1>
+      <Fruits fruits={fruits} />
+      <FruitsCounter fruits={fruits} />
     </div>
-  ); 
-}; 
+  );
+}
 
 export default App;

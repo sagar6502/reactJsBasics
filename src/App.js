@@ -11,6 +11,9 @@ import Card from './components/Card';
 import Btn from './components/Btn';
 import ModeToggler from './components/ModeToggler';
 import Child from './components/Child';
+import InputComponent from './components/InputComponent';
+import RegisterForm from './components/RegisterForm';
+import TextInputWithFocusButton from './components/TextInputWithFocusButton'
 
 function Logo(props){
   const userPic = <img src = {avatar}/>;
@@ -44,11 +47,20 @@ function Logo(props){
 //     );
 //   };
 
+// function App() {
+//   const date = new Date()
+//   return (
+//       <div>
+//         <RegisterForm/ >
+//       </div>
+//     );
+// };   
+
 function App() {
   const date = new Date()
   return (
       <div>
-        <Child message = {date.toLocaleTimeString()}/>
+        <TextInputWithFocusButton/ >
       </div>
     );
 };   

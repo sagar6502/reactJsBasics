@@ -9,6 +9,8 @@ import Sidebar from './components/Sidebar';
 import avatar from './avatar.jpeg';
 import Card from './components/Card';
 import Btn from './components/Btn';
+import ModeToggler from './components/ModeToggler';
+import Child from './components/Child';
 
 function Logo(props){
   const userPic = <img src = {avatar}/>;
@@ -43,11 +45,31 @@ function Logo(props){
 //   };
 
 function App() {
+  const date = new Date()
   return (
-      <div className="App">
-          <Btn/>
+      <div>
+        <Child message = {date.toLocaleTimeString()}/>
       </div>
     );
 };   
 
 export default App;
+
+// function App() {
+
+//     function handleClick() {
+//       let randomNum = Math.floor(Math.random() * 3) + 1;
+//       console.log(randomNum);
+//       let userInput = prompt('type a number');
+//       alert(`Computer number: ${randomNum}, Your guess: ${userInput}`);
+//     }
+  
+//     return (
+//       <div>
+//         <h1>Task: Add a button and handle a click event</h1>
+//         <button onClick={handleClick}>Guess the number between 1 and 3</button>
+//       </div>
+//     );
+//   }
+  
+//   export default App;

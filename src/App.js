@@ -14,6 +14,8 @@ import Child from './components/Child';
 import InputComponent from './components/InputComponent';
 import RegisterForm from './components/RegisterForm';
 import TextInputWithFocusButton from './components/TextInputWithFocusButton'
+import Clock from './components/Clock';
+import { useState } from 'react';
 
 function Logo(props){
   const userPic = <img src = {avatar}/>;
@@ -54,16 +56,32 @@ function Logo(props){
 //         <RegisterForm/ >
 //       </div>
 //     );
-// };   
+// };  
+
+
+
 
 function App() {
-  const date = new Date()
+  let [word,setWord] = useState('Clock');
+  function handleClick(){
+    setWord('Watch')
+ }
   return (
-      <div>
-        <TextInputWithFocusButton/ >
+      <div className="App">
+        <Clock status={word +" Alarm Off"}/>
+        <button onClick={handleClick}>Click here</button>
       </div>
     );
 };   
+
+// function App() {
+//   const date = new Date()
+//   return (
+//       <div>
+//         <TextInputWithFocusButton/ >
+//       </div>
+//     );
+// };   
 
 export default App;
 
